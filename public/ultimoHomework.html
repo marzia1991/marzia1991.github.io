@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Progetto Finale</title> 
+  <style>
+    body{
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #stats {  /* Align stats top-left */
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+
+    #blocker {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    #instructions {
+      width: 100%;
+      height: 100%;
+
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+
+      -webkit-box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      box-orient: horizontal;
+
+      -webkit-box-pack: center;
+      -moz-box-pack: center;
+      box-pack: center;
+
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+
+      color: #ffffff;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    #pointer {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -15px;
+      margin-left: -15px;
+      width: 30px;
+      height: 30px;
+      display: none;
+      background-image: url("assets/textures/general/mirino.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+  </style> 
+  </head>
+  <body>
+  <div id="pointer"></div>
+  <!-- JavaScript libraries -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+  <script src="assets/libs/TrackballControls.js"></script>
+  <script src="assets/libs/tween.min.js"></script>
+  <script src="assets/libs/OBJLoader.js"></script>
+  <script src="assets/libs/OBJMTLLoader.js"></script>
+  <script src="assets/libs/MTLLoader.js"></script>
+  <script src="assets/libs/PointerLockControls.js"></script>
+  <script src="assets/libs/ParticleEngine.js"></script>
+  <script src="assets/libs/ParticleEngineExamples.js"></script>
+
+  <!-- my script-->
+  <script src="script/videoesuoni.js"></script>
+  <script src="script/init.js"></script>
+  <script src="script/function.js"></script>
+  <script src="script/skybox.js"></script>
+  <script src="script/ligth.js"></script> 
+  <script src="script/floors.js"></script>
+  <script src="script/walls.js"></script>
+  <script src="script/doors.js"></script>
+  <script src="script/windows.js"></script>
+  <script src="script/arredamento.js"></script>
+  <script src="script/animation.js"></script>
+  <script src="script/pointerLock.js"></script>
+  <!-- Javascript code that runs our Three.js examples --> 
+  <script>
+    // once everything is loaded, we run our Three.js stuff.
+    $(function () {
+
+      // add the output of the renderer to the html element
+      $('body').append(webGLRenderer.domElement);
+
+    });
+  </script>  
+ </body>
+</html>

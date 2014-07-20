@@ -1,0 +1,12 @@
+newmtl aqua
+Kd 0.670588 0.803921 0.937254
+Ks 0 0 0
+Ka 0 0 0
+illum 1
+
+newmtl silver
+Kd 0.752941 0.752941 0.752941
+Ks 0 0 0
+Ka 0 0 0
+illum 1
+

@@ -1,0 +1,21 @@
+# 
+# Copyrights (C) 2010  Peter Smolik
+# Released under Free Art  Licence Art Libre http://www.artlibre.org
+# 
+
+newmtl HallTable_1
+illum 2
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.5 0.5 0.5
+Ns 8
+map_Kd Wood1.jpg
+
+newmtl HallTable_2
+Ns 100
+Ka 0.000000 0.000000 0.000000
+Kd 0.125000 0.125000 0.125000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
