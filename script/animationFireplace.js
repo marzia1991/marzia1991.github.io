@@ -20,6 +20,8 @@ firea.interact=function(){
 	       .to({x:0, y: 0, z:-Math.PI/2},1000)
 	        .start();
 
+	    fireAllarmaudio.play();
+
 		setTimeout( function() {
 			fire.destroy();
 			smoke=new ParticleEngine();

@@ -1,9 +1,18 @@
 //carico video e suoni
+//suono allarme antincendio
+var fireAllarmaudio = document.createElement('audio');
+
+var fireAllarmaudioperc = document.createElement('source');
+fireAllarmaudioperc.src="assets/audioevideo/fireAllarm.mp3";
+
+fireAllarmaudio.appendChild(fireAllarmaudioperc);
+fireAllarmaudio.loop=false;
+
 //suono macchinetta del caffè
 var motoaudio = document.createElement('audio');
 
 var motoaudioperc = document.createElement('source');
-motoaudioperc.src="assets/audioevideo/moto.mp3";
+motoaudioperc.src="assets/audioevideo/moto2.mp3";
 
 motoaudio.appendChild(motoaudioperc);
 motoaudio.loop=false;

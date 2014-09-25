@@ -714,7 +714,7 @@ function caricaMoto ( moto,name, scale, posx, posy, posz) {
             .chain(t22)
 
             var t19= new TWEEN.Tween(moto3d.position)
-            .to({x:-3, y: -9, z:0},1000)
+            .to({x:-3, y: -9, z:0},2000)
             .chain(t20,t21)
 
             var t18= new TWEEN.Tween(moto3d.rotation)
@@ -774,7 +774,7 @@ function caricaMoto ( moto,name, scale, posx, posy, posz) {
             .chain(t7)
 
             var t4= new TWEEN.Tween(moto3d.position)
-            .to({x:18, y: 30, z:0},4000)
+            .to({x:18, y: 30, z:0},1000)
             .chain(t5,t6)
 
             var t3= new TWEEN.Tween(moto3d.position)
@@ -786,7 +786,7 @@ function caricaMoto ( moto,name, scale, posx, posy, posz) {
             .chain(t4)
 
             var t1= new TWEEN.Tween(moto3d.position)
-            .to({x:-5, y: 27, z:0},4000)
+            .to({x:-5, y: 27, z:0},1000)
             .chain(t2,t3)
             .start();
         };
