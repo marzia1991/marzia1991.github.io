@@ -291,6 +291,9 @@ loader2.addEventListener('load', function (event) {
     House.add(fer3d);
 	objc2.interact=function(){
 
+		//ferroaudio.play();
+		setTimeout( function() {ferroaudio.play() } , 2000);
+
 		var ferRotation2= new TWEEN.Tween(fer3d.rotation)
 	        .to({x:0, y: 0, z:0},1000)
 

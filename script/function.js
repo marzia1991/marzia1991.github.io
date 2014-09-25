@@ -700,6 +700,8 @@ function caricaMoto ( moto,name, scale, posx, posy, posz) {
 
         moto.interact=function(){ 
 
+            motoaudio.play();
+
             var t22= new TWEEN.Tween(moto3d.position)
             .to({x:-5, y: 2, z:0},500)
 

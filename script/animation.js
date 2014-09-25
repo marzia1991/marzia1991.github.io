@@ -36,8 +36,8 @@ coffe_box.add(coffe_cilinder2);
 
 coffe_box.interact = function() {
 	if (coffe_box.inactive) {
+		coffeaudio.play();
 		coffe_box.inactive = false;
-		//coffe_audio.play();
 		var versac1 = new TWEEN.Tween(coffe_box.children[0].scale)
 			.to({y: 0.5}, 2000)
 			.start();

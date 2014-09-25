@@ -1,4 +1,31 @@
 //carico video e suoni
+//suono macchinetta del caffè
+var motoaudio = document.createElement('audio');
+
+var motoaudioperc = document.createElement('source');
+motoaudioperc.src="assets/audioevideo/moto.mp3";
+
+motoaudio.appendChild(motoaudioperc);
+motoaudio.loop=false;
+
+//suono macchinetta del caffè
+var coffeaudio = document.createElement('audio');
+
+var coffeaudioperc = document.createElement('source');
+coffeaudioperc.src="assets/audioevideo/caffe.mp3";
+
+coffeaudio.appendChild(coffeaudioperc);
+coffeaudio.loop=false;
+
+//suono ferro da stiro
+var ferroaudio = document.createElement('audio');
+
+var ferroaudioperc = document.createElement('source');
+ferroaudioperc.src="assets/audioevideo/ferroDaStiro.mp3";
+
+ferroaudio.appendChild(ferroaudioperc);
+ferroaudio.loop=false;
+
 //suono porta che cigola
 var portaaudio = document.createElement('audio');
 
