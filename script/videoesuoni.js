@@ -3,7 +3,7 @@
 var fireAllarmaudio = document.createElement('audio');
 
 var fireAllarmaudioperc = document.createElement('source');
-fireAllarmaudioperc.src="assets/audioevideo/fireAlarm.mp3";
+fireAllarmaudioperc.src="assets/audioevideo/fireAllarm.mp3";
 
 fireAllarmaudio.appendChild(fireAllarmaudioperc);
 fireAllarmaudio.loop=false;
