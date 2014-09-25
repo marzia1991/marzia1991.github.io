@@ -41,6 +41,8 @@ directionalLight2.intensity = 1;
 //scene.add(directionalLight2);
 House.add(directionalLight2);*/
 
+var clock= new THREE.Clock();
+
 // aggiungo 4 luci direzionali alla scena
 var light1 = new THREE.DirectionalLight(0xffffff);
   light1.position.set(5000, 5000, 1000);
@@ -128,6 +130,25 @@ gui.add(controls,'roof').onChange(function (value) {
   }
 });
 
+//particelle
+//fuoco nel camino
+var fire= new ParticleEngine();
+fire.setValues( Examples.candle );
+fire.initialize();
+fire.destroy();
+
+//fumo che fuoriesce dal camino
+var smoke= new ParticleEngine();
+smoke.setValues( Examples.smoke );
+smoke.initialize();
+smoke.destroy();
+
+//acqua che spenge l'incendio
+var water4fire= new ParticleEngine();
+water4fire.setValues( Examples.rain );
+water4fire.initialize();
+water4fire.destroy();
+
 render();
 
 function onDocumentMouseDown (event) {
@@ -140,7 +161,7 @@ function onDocumentMouseDown (event) {
 
     var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
 
-    var intersects = raycaster.intersectObjects([water_box,int1,int2,int3,int4,int5,int6,int7,int8,int9,pernoq.children[0],cassaforte,movieBlack,pcBlack,f1cam.children[0].children[0],f2cam.children[0].children[0],fbagno1.children[0].children[0],fbagno2.children[0].children[0],f1cucina.children[0].children[0],f2cucina.children[0].children[0],f1sala.children[0].children[0],f2sala.children[0].children[0],hook1.children[0].children[1],hook2.children[0].children[1],hook3.children[0].children[1],hook4.children[0].children[1],hook5.children[0].children[1],hook6.children[0].children[1],hook7.children[0].children[5],hook8.children[0].children[5],hookpf1.children[0].children[1],hookpf2.children[0].children[1],wardrobe.anta1,wardrobe.anta2]);
+    var intersects = raycaster.intersectObjects([firea,water1,water2,lamp,objc2,radio,objc,water_box,coffe_box,moto,int1,int2,int3,int4,int5,int6,int7,int8,int9,pernoq.children[0],cassaforte,movieBlack,pcBlack,f1cam.children[0].children[0],f2cam.children[0].children[0],fbagno1.children[0].children[0],fbagno2.children[0].children[0],f1cucina.children[0].children[0],f2cucina.children[0].children[0],f1sala.children[0].children[0],f2sala.children[0].children[0],hook1.children[0].children[1],hook2.children[0].children[1],hook3.children[0].children[1],hook4.children[0].children[1],hook5.children[0].children[1],hook6.children[0].children[1],hook7.children[0].children[5],hook8.children[0].children[5],hookpf1.children[0].children[1],hookpf2.children[0].children[1],wardrobe.anta1,wardrobe.anta2]);
 
     if (intersects.length > 0) {
       intersects[0].object.interact();
@@ -153,7 +174,7 @@ function onDocumentMouseDown (event) {
 
     var raycaster = new THREE.Raycaster(vector2, controls.getDirection(new THREE.Vector3(0,0,0)).clone());
 
-    var intersects = raycaster.intersectObjects([water_box,int1,int2,int3,int4,int5,int6,int7,int8,int9,pernoq.children[0],cassaforte,movieBlack,pcBlack,f1cam.children[0].children[0],f2cam.children[0].children[0],fbagno1.children[0].children[0],fbagno2.children[0].children[0],f1cucina.children[0].children[0],f2cucina.children[0].children[0],f1sala.children[0].children[0],f2sala.children[0].children[0],hook1.children[0].children[1],hook2.children[0].children[1],hook3.children[0].children[1],hook4.children[0].children[1],hook5.children[0].children[1],hook6.children[0].children[1],hook7.children[0].children[5],hook8.children[0].children[5],hookpf1.children[0].children[1],hookpf2.children[0].children[1],wardrobe.anta1,wardrobe.anta2]);
+    var intersects = raycaster.intersectObjects([firea,water1,water2,lamp,objc2,radio,objc,water_box,coffe_box,moto,int1,int2,int3,int4,int5,int6,int7,int8,int9,pernoq.children[0],cassaforte,movieBlack,pcBlack,f1cam.children[0].children[0],f2cam.children[0].children[0],fbagno1.children[0].children[0],fbagno2.children[0].children[0],f1cucina.children[0].children[0],f2cucina.children[0].children[0],f1sala.children[0].children[0],f2sala.children[0].children[0],hook1.children[0].children[1],hook2.children[0].children[1],hook3.children[0].children[1],hook4.children[0].children[1],hook5.children[0].children[1],hook6.children[0].children[1],hook7.children[0].children[5],hook8.children[0].children[5],hookpf1.children[0].children[1],hookpf2.children[0].children[1],wardrobe.anta1,wardrobe.anta2]);
 
     if (intersects.length > 0) {
       intersects[0].object.interact();
@@ -188,6 +209,12 @@ function render() {
   stats.update();
   trackballControls.update();
   TWEEN.update();
+
+  var delta= clock.getDelta();
+  fire.update(delta*0.5);
+  smoke.update(delta*0.5);
+  water4fire.update(delta*0.5);
+
 
   if ( video.readyState === video.HAVE_ENOUGH_DATA ) {
     videoImageContext.drawImage( video, 0, 0 );

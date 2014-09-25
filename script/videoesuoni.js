@@ -8,6 +8,34 @@ portaaudioperc.src="assets/audioevideo/suonoporta.mp3";
 portaaudio.appendChild(portaaudioperc);
 portaaudio.loop=false;
 
+//suono radio
+//i'm gonna be
+var radioaudio1 = document.createElement('audio');
+
+var radioaudioperc1 = document.createElement('source');
+radioaudioperc1.src="assets/audioevideo/imgonnabe.mp3";
+
+radioaudio1.appendChild(radioaudioperc1);
+radioaudio1.loop=false;
+
+//panic station
+var radioaudio2 = document.createElement('audio');
+
+var radioaudioperc2 = document.createElement('source');
+radioaudioperc2.src="assets/audioevideo/panicstation.mp3";
+
+radioaudio2.appendChild(radioaudioperc2);
+radioaudio2.loop=false;
+
+//no angels
+var radioaudio3 = document.createElement('audio');
+
+var radioaudioperc3 = document.createElement('source');
+radioaudioperc3.src="assets/audioevideo/noangels.mp3";
+
+radioaudio3.appendChild(radioaudioperc3);
+radioaudio3.loop=false;
+
 //allarme cassaforte
 var cassaforteaudio = document.createElement('audio');
 

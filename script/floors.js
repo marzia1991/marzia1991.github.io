@@ -2,7 +2,6 @@
 var mattonelle_sala = createMeshRic(new THREE.ShapeGeometry(drawShapeMax(0.4,0.4,10.7,0.4,10.7,4.4,5.9,4.4,5.9,13,4.6,13,4.6,4.4,0.4,4.4)),"mattonelle_marmo.jpg");
 mattonelle_sala.material.map.repeat.set(1.3,1.3);
 mattonelle_sala.position.z=0.31;
-//House.add(mattonelle_sala);
 House.add(mattonelle_sala);
 
 //primo bagno

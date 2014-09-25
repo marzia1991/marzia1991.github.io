@@ -30,7 +30,12 @@ int3.position.set(4.2,4.39,1.4);
 House.add(int3);
 crealuce(int3, -2, 3, 1);
 loadObjMtl('interrupteur',0.02,4.2,4.39,1.4);
-loadObjMtl('ceilingFan',0.012,1.85,7.5,2.785);
+var lamphook=new THREE.Object3D();
+var lGeom = new THREE.BoxGeometry(1,1,1);
+var lMat = new THREE.MeshLambertMaterial({color: 0x5C3317});
+var lamp = new THREE.Mesh(lGeom,lMat);
+lamphook.fermo=true;
+moveLamp(lamphook, lamp,'ceilingFan',0.012,1.85,7.5,2.785);
 
 //luce bagno1
 var int4Geom = new THREE.BoxGeometry(0.1,0.1,0.1);
@@ -102,5 +107,5 @@ loadObjMtl('hangingLight',0.015,5,9.2,2.75);
 loadObjMtl('porch-light',0.2,10,-0.15,2);
 
 //lampioni
-loadObjMtl('classic-lamppost',.1,-1,-1,0);
-loadObjMtl('classic-lamppost',.1,12,-1,0);
+loadObjMtl('classic-lamppost',.15,-1,-1,0);
+loadObjMtl('classic-lamppost',.15,12,-1,0);

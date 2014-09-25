@@ -162,36 +162,29 @@ function creaAnta(){
     return f1;
 }
 
-/*function creaFrenchWindow(x, y, z){
-    var pfinestra = new THREE.Object3D(); 
-    var anta = creaAnta2();
-    pfinestra.add(anta);
-    pfinestra.position.set(x,y,z);
-    return pfinestra;
-}
+function creaSportello(){
+    var options = {amount: 0.05,bevelThickness: 2,bevelSize: 1,bevelSegments: 3,bevelEnabled: false,curveSegments: 12,steps: 1};
+    var shapew1=drawShape(0,0,0.5,0,0.5,0.6,0,0.6);
+    var holew1=drawShape(0.02,0.02,0.48,0.02,0.48,0.58,0.02,0.58);
 
-function creaAnta2(){
-
-    var anta = new THREE.Object3D();
-    var options = {amount: 0.12,bevelThickness: 2,bevelSize: 1,bevelSegments: 3,bevelEnabled: false,curveSegments: 12,steps: 1};
-    var shapew1=drawShape(0,0,1.99,0,1.99,1,0,1);
-    var holew1=drawShape(0.1,0.1,1.89,0.1,1.89,0.9,0.1,0.9);
     shapew1.holes.push(holew1);
-    var f1 = createMeshRic(new THREE.ExtrudeGeometry(shapew1, options),"finestra.jpg");
-    f1.material.map.repeat.set(0.5,0.5)
+    var f1 = createMeshRic(new THREE.ExtrudeGeometry(shapew1, options),"coloreSportello.jpg");
     f1.rotation.y=-Math.PI/2;
+    f1.position.x=-0.15;
 
-    anta.add(f1);
-
-    var geometry = new THREE.BoxGeometry(1.79,0.8,0.1);
-    var material = new THREE.MeshLambertMaterial( {color: 0x87cefa, transparent: true, opacity: .5} );
+    var geometry = new THREE.BoxGeometry(0.46,0.56,0.03);
+    var material = new THREE.MeshLambertMaterial( {color: 0x87cefa, transparent: true, opacity: .35} );
     var vetro = new THREE.Mesh( geometry, material );
-    vetro.position.set(-.2,0.5,1);
-    vetro.rotation.y=-Math.PI/2;
-    anta.add( vetro );
+    vetro.position.set(0.23+0.02,0.28+0.02,0.025);
+    f1.add(vetro);
 
-    return anta ;
-}*/
+    var sportello = new THREE.Object3D(); 
+
+    sportello.add(f1);
+    f1.position.x=0.005;
+    sportello.position.set(0.95,2.1,0.79);
+    return sportello;
+}
 
 function loadObjMtl ( name, scale, posx, posy, posz) {
     var loader = new THREE.OBJMTLLoader();
@@ -215,7 +208,7 @@ function loadObjMtl ( name, scale, posx, posy, posz) {
     );
 }
 
-function loadObjMtl2 ( name, scale, posx, posy, posz, rotz) {
+function loadObjMtl2 ( name, scale, posx, posy, posz, rotz, val) {
     var loader = new THREE.OBJMTLLoader();
     loader.addEventListener('load', function (event) {
 
@@ -225,7 +218,10 @@ function loadObjMtl2 ( name, scale, posx, posy, posz, rotz) {
 
         object.scale.set(scale, scale, scale);
         object.rotation.x = Math.PI/2;
-        object.rotation.y = rotz;
+        if (val)
+            object.rotation.x = rotz;
+        else
+            object.rotation.y = rotz;
         object.position.set(posx,posy,posz);
         House.add(object);
     });
@@ -495,4 +491,311 @@ function crealuce(interruttore, posX, posY, posZ) {
           luce.intensity = 0;
         }
     }
+}
+
+function moveLamp (hook, lamp, name, scale, posx, posy, posz){
+    var loader = new THREE.OBJMTLLoader();
+    loader.addEventListener('load', function (event) {
+        var object = event.content;
+        var wing1 = object.children[0];
+        var wing2 = object.children[1];
+        var wing3 = object.children[2];
+        var wing4 = object.children[3];
+
+
+        var x=-0.65;
+        var y=0.6;
+        var z=-0.27;
+        
+        hook.add(wing2);
+        hook.add(wing3);
+
+        wing2.scale.set(scale, scale, scale);
+        wing2.rotation.x = Math.PI/2;
+        wing2.position.set(x,y,z);
+
+        wing3.scale.set(scale, scale, scale);
+        wing3.rotation.x = Math.PI/2;
+        wing3.position.set(x,y,z);
+
+        hook.position.set(posx-x,posy-y,posz-z);
+
+        wing1.scale.set(scale, scale, scale);
+        wing1.rotation.x = Math.PI/2;
+        wing1.position.set(posx,posy,posz);
+
+        wing4.scale.set(scale, scale, scale);
+        wing4.rotation.x = Math.PI/2;
+        wing4.position.set(posx,posy,posz);
+       
+        House.add(wing1);
+        House.add(wing4);
+        House.add(hook);
+
+        
+        lamp.visible=false;
+        lamp.position.set(posx+0.5,posy-0.5,posz+0.5);
+        House.add(lamp);
+        var lamprotation;
+
+        lamp.interact= function(){
+            if (hook.fermo){
+                hook.fermo=false;
+                lamprotation= new TWEEN.Tween(hook.rotation)
+                    .to({x:0, y:0 , z:50*Math.PI},50000)
+                    .start();
+            }
+            else {
+                hook.fermo=true;
+                lamprotation.stop();
+            }
+        }
+
+
+    });
+
+
+    loader.load(
+    'assets/obj-mtl/'+name+'.obj', 
+    'assets/obj-mtl/'+name+'.mtl', 
+    {side: THREE.DoubleSide}
+    );
+}
+
+function moveWater (hook, water, name, scale, posx, posy, posz,rotz){
+    var loader = new THREE.OBJMTLLoader();
+    loader.addEventListener('load', function (event) {
+        var object = event.content;
+        var wing1 = object.children[0];
+        var wing2 = object.children[1];
+
+        var x=0;
+        var y=-0.2;
+        var z=-0.43;
+        hook.add(wing1); 
+        wing1.scale.set(scale, scale, scale);
+        wing1.rotation.x = Math.PI/2;
+        //da rivedere per quanto riguarda la tavoletta girata
+        if (rotz)
+            hook.rotation.z = rotz;
+        wing1.position.set(x,y,z);
+        hook.position.set(posx,posy-y,posz-z);
+
+        wing2.scale.set(scale, scale, scale);
+        wing2.rotation.x = Math.PI/2;
+        if (rotz)
+            wing2.rotation.y = rotz;
+        wing2.position.set(posx,posy,posz);
+
+        House.add(hook);
+        House.add(wing2);
+
+        
+        water.visible=false;
+        water.position.set(posx,posy,posz+0.5);
+        House.add(water);
+
+        water.interact= function(){
+            if (hook.chiuso){
+                hook.chiuso=false;
+                var waterrotation= new TWEEN.Tween(hook.rotation)
+                    .to({x:-Math.PI/2, y:0 , z:0},1000)
+                    .start();
+            }
+            else {
+                hook.chiuso=true;
+                var waterrotation2= new TWEEN.Tween(hook.rotation)
+                    .to({x:0, y:0 , z:0},1000)
+                    .start();
+            }
+        }
+
+
+    });
+
+
+    loader.load(
+    'assets/obj-mtl/'+name+'.obj', 
+    'assets/obj-mtl/'+name+'.mtl', 
+    {side: THREE.DoubleSide}
+    );
+}
+
+function moveWater2 (hook, water, name, scale, posx, posy, posz,rotz){
+    var loader = new THREE.OBJMTLLoader();
+    loader.addEventListener('load', function (event) {
+        var object = event.content;
+        var wing1 = object.children[0];
+        var wing2 = object.children[1];
+
+        var x=0.16;
+        var y=-0.19;
+        var z=-0.43;
+        hook.add(wing1); 
+        wing1.scale.set(scale, scale, scale);
+        wing1.rotation.x = Math.PI/2;
+        //da rivedere per quanto riguarda la tavoletta girata
+        if (rotz)
+            hook.rotation.z = rotz;
+        wing1.position.set(x,y,z);
+        hook.position.set(posx+x,posy+y,posz-z);
+
+        wing2.scale.set(scale, scale, scale);
+        wing2.rotation.x = Math.PI/2;
+        if (rotz)
+            wing2.rotation.y = rotz;
+        wing2.position.set(posx,posy,posz);
+
+        House.add(hook);
+        House.add(wing2);
+
+        
+        water.visible=false;
+        water.position.set(posx,posy,posz+0.5);
+        House.add(water);
+
+        water.interact= function(){
+            if (hook.chiuso){
+                hook.chiuso=false;
+                var waterrotation= new TWEEN.Tween(hook.rotation)
+                    .to({x:Math.PI/2, y:0, z:rotz},1000)
+                    .start();
+            }
+            else {
+                hook.chiuso=true;
+                var waterrotation2= new TWEEN.Tween(hook.rotation)
+                    .to({x:0, y:0 , z:rotz},1000)
+                    .start();
+            }
+        }
+
+
+    });
+
+
+    loader.load(
+    'assets/obj-mtl/'+name+'.obj', 
+    'assets/obj-mtl/'+name+'.mtl', 
+    {side: THREE.DoubleSide}
+    );
+}
+
+function caricaMoto ( moto,name, scale, posx, posy, posz) {
+    var loader = new THREE.OBJMTLLoader();
+    loader.addEventListener('load', function (event) {
+
+        var object = event.content;
+        object.scale.set(scale, scale, scale);
+        object.rotation.x = Math.PI/2;
+        object.rotation.y = -Math.PI/2;
+        object.position.set(posx,posy,posz);
+
+        var moto3d= new THREE.Object3D();
+        moto3d.position.set(-5,2,0);
+        moto3d.add(object);
+        object.position.set(-0.5,0,-1.25);
+        House.add(moto3d);
+
+        object.children[153].visible = false;
+
+        moto.interact=function(){ 
+
+            var t22= new TWEEN.Tween(moto3d.position)
+            .to({x:-5, y: 2, z:0},500)
+
+            var t21= new TWEEN.Tween(moto3d.rotation)
+            .to({x:0, y: 0, z:-2*Math.PI},500)
+            .chain(t22)
+
+            var t20= new TWEEN.Tween(moto3d.position)
+            .to({x:-5, y: -7, z:0},500)
+            .chain(t22)
+
+            var t19= new TWEEN.Tween(moto3d.position)
+            .to({x:-3, y: -9, z:0},1000)
+            .chain(t20,t21)
+
+            var t18= new TWEEN.Tween(moto3d.rotation)
+            .to({x:0, y: 0, z:-3*Math.PI/2},500)
+            .chain(t19)
+
+            var t17= new TWEEN.Tween(moto3d.position)
+            .to({x:18, y: -9, z:0},500)
+            .chain(t19)
+
+            var t16= new TWEEN.Tween(moto3d.position)
+            .to({x:20, y: -7, z:0},500)
+            .chain(t17,t18)
+
+            var t15= new TWEEN.Tween(moto3d.rotation)
+            .to({x:0, y: 0, z:-Math.PI},500)
+            .chain(t16)
+
+            var t14= new TWEEN.Tween(moto3d.position)
+            .to({x:20, y: -2, z:0},500)
+            .chain(t16)
+
+            var t13= new TWEEN.Tween(moto3d.rotation)
+            .to({x:0.32, y: 0, z:-Math.PI},500)
+            .chain(t14,t15)
+
+            var t12= new TWEEN.Tween(moto3d.position)
+            .to({x:20, y: 4.2, z:1.8},500)
+            .chain(t14,t15)
+
+            var t11= new TWEEN.Tween(moto3d.rotation)
+            .to({x:0, y: 0, z:-Math.PI},500)
+            .chain(t12,t13)
+
+            var t10= new TWEEN.Tween(moto3d.position)
+            .to({x:20, y: 11, z:3.5},500)
+            .chain(t12,t13)
+
+            var t9= new TWEEN.Tween(moto3d.position)
+            .to({x:20, y: 19, z:1.69},500)
+            .chain(t10,t11)
+
+            var t8= new TWEEN.Tween(moto3d.rotation)
+            .to({x:-0.32, y: 0, z:-Math.PI},500)
+            .chain(t10,t11)
+
+            var t7= new TWEEN.Tween(moto3d.position)
+            .to({x:20, y: 25, z:0},500)
+            .chain(t8,t9)
+
+            var t6= new TWEEN.Tween(moto3d.position)
+            .to({x:20, y: 28, z:0},1000)
+            .chain(t7)
+
+            var t5= new TWEEN.Tween(moto3d.rotation)
+            .to({x:0, y:0, z:-Math.PI},1000)
+            .chain(t7)
+
+            var t4= new TWEEN.Tween(moto3d.position)
+            .to({x:18, y: 30, z:0},4000)
+            .chain(t5,t6)
+
+            var t3= new TWEEN.Tween(moto3d.position)
+            .to({x:-3, y: 30, z:0},1000)
+            .chain(t4)
+
+            var t2= new TWEEN.Tween(moto3d.rotation)
+            .to({x:0, y:0, z:-Math.PI/2},1000)
+            .chain(t4)
+
+            var t1= new TWEEN.Tween(moto3d.position)
+            .to({x:-5, y: 27, z:0},4000)
+            .chain(t2,t3)
+            .start();
+        };
+
+         
+    });
+
+
+    loader.load(
+    'assets/obj-mtl/'+name+'.obj', 
+    'assets/obj-mtl/'+name+'.mtl', 
+    {side: THREE.DoubleSide}
+    );
 }

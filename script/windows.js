@@ -4,10 +4,9 @@ House.add(f1cucina);
 
 var f2cucina= creaWindow(0.15,7.1,1.31,2);
 f2cucina.rotation.z=Math.PI;
-House.add(f2cucina);//il perno è sbagliato
+House.add(f2cucina);
 
 //finestre bagni
-//entrambe troppo grandi, da rivedere e modificare shape
 var fbagno1= creaWindow(0.26,9.4,1.31,1);
 House.add(fbagno1);
 
@@ -21,11 +20,11 @@ House.add(f1sala);
 
 var f2sala= creaWindow(1.5,0.15,1.31,3);
 f2sala.rotation.z=3*Math.PI/2;
-House.add(f2sala);//il perno è sbagliato
+House.add(f2sala);
 
 //finestre camera mia
 var f1cam= creaWindow(4.3,16.95,1.31,4);
-f1cam.rotation.z=Math.PI/2;//il perno è sbagliato
+f1cam.rotation.z=Math.PI/2;
 House.add(f1cam);
 
 var f2cam= creaWindow(2.5,16.85,1.31,5);
