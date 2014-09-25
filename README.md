@@ -13,15 +13,16 @@ Marzia Dominici - 439474
 * [animation](script/animation.js): gestisce alcune delle maggiori animazioni del progetto.
 * [animationFireplace] (script/animationFireplace.js): gestisce l'animazione del fuoco.
 * [arredamento] (script/arredamento.js) : carico la maggior parte degli oggetti presenti nella casa.
-* [doors] (script/doors.js) : realizza ttte le porte della casa gestendo anche le aperture e le chiusure
+* [doors] (script/doors.js) : realizza ttte le porte della casa gestendo anche le aperture e le chiusure.
 * [floors] (script/floors.js) : realizza tutti i pavimenti della casa applicando specifiche texture.
-* [function] (script/function.js) : insieme di funzioni utili per l'intero progetto
+* [function] (script/function.js) : insieme di funzioni utili per l'intero progetto.
 * [init] (script/init.js) : crea la casa importanto l'obj realizzato in lar.
-* [ligth] (script/ligth.js) : realizza tutti gli interruttori e le luci della casa
-* [skybox](script/skybox.js) : realizza il panorama che circonda la casa
-* [videoesuoni] (script/videoesuoni.js) : carica tutti i video e i suoni per l'intero progetto
-* [walls] (script/walls.js) : applica le texture di tutte le pareti della casa, che siano maioliche o carta da parati
-* [windows] (script/windows.js) : realizza tutte le finestre della casa
+* [ligth] (script/ligth.js) : realizza tutti gli interruttori e le luci della casa.
+* [skybox](script/skybox.js) : realizza il panorama che circonda la casa.
+* [videoesuoni] (script/videoesuoni.js) : carica tutti i video e i suoni per l'intero progetto.
+* [walls] (script/walls.js) : applica le texture di tutte le pareti della casa, che siano maioliche o carta da parati.
+* [windows] (script/windows.js) : realizza tutte le finestre della casa.
+
 =======
 
 **Graphic techniques :**
