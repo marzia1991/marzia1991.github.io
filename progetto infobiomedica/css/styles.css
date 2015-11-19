@@ -1,0 +1,99 @@
+section {
+  height: 100%; /* metti 100% se media */
+  padding-top:50px;  
+  padding-bottom:50px;
+  min-height:100%;
+  min-height:calc(100% - 0);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.sidebar {
+  display: none;
+  
+}
+
+@media (min-width: 1265px) and (min-height: 770px) {
+  .sidebar { 
+    display: block;
+    position: fixed; 
+    top: 18%; 
+    margin-left: 3%;
+  }
+
+  section {
+    height:100vh;
+    padding-top:50px;  
+    padding-bottom:50px;
+    min-height:100%;
+    min-height:calc(100% - 0);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+}
+
+.nav-pills>li.active>a {
+  background-color:#EEEEEE;
+  color:#000000;
+}
+
+.datepicker-dropdown:before {
+  border-left: 0px solid transparent; 
+  border-right: 0px solid transparent; 
+}
+
+.datepicker-dropdown:after {
+  border-left: 0px solid transparent; 
+  border-right: 0px solid transparent; 
+}
+
+.btn {
+    padding: 7px 12px;
+}
+
+#aumenta{
+  height: 40px;
+}
+
+#aumenta2{
+  height: 49px;
+}
+
+#ridimensiona{
+  width: 50px;
+}
+
+#da{
+  margin-top:6px;
+}
+
+#a{
+  margin-top:6px;
+}
+
+#altreinfo{
+  margin-top:10px;
+}
+
+#altreinfo2{
+  margin-top:10px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  text-align: center;
+  vertical-align: top;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 0px;
+}
+
+#bordo {
+    border-bottom: 0px;
+}
+
+#check_box_div{
+  padding-left: 40px;
+}

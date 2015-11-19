@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap</title>
+        <meta charset="utf-8">
+      <meta name="description" content="This one page example has a fixed navbar and full page height sections. Each section is vertically centered on larger screens, and then stack responsively on smaller screens. Scrollspy is used to activate the current menu item. This layout also has a contact form example. Uses animate.css, FontAwesome, Google Fonts (Lato and Bitter) and Bootstrap." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    
+
+    <link rel="stylesheet" href="C:/Users/661119/Documents/GitHub/marzia1991.github.io/progetto infobiomedica/css/styles.css" />
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+
+    </head>
+    <body >
+    <section class="container-fluid" id="section1">
+    
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 class="text-center"><strong>FASD Diagnostic Form</strong></h1>
+          <br>
+          <br>
+          <h3 class="text-center">Informazioni base:</h3> 
+          <br>
+        
+
+       
+      </div>
+  </div>
+      <a href="#section2" >
+        <div class="scroll-down bounceInDown animated" style="padding: 10px 10px">
+            <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+            </span>
+        </div>
+        </a>
+  </section>
+
+  <section class="container-fluid" id="section2">
+    <div class="row">
+        <div class="col-md-1 col-md-offset-2">
+          <div class="form-group">
+            <label for="sesso">Sesso:</label>
+            <br>
+            <select class="selectpicker" style="height:34px">
+              <option></option>
+              <option>M</option>
+              <option>F</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-2">
+          <div class="form-group">
+            <label for="razza">Razza:</label>
+            <input type="razza" class="form-control" id="razza">
+          </div>
+        </div>
+    </div>
+ 
+  </section>
+
+ <script >     
+    /* activate scrollspy menu */
+$('body').scrollspy({
+  target: '#navbar-collapsible',
+  offset: 52
+});
+
+/* smooth scrolling sections */
+$('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - 50
+        }, 800);
+        
+        if (this.hash=="#section1") {
+            $('.scroll-up').hide();
+        }
+        else {
+            $('.scroll-up').show();
+        }
+        
+        
+        // activte animations in this section
+        target.find('.animate').delay(1200).addClass("animated");
+        setTimeout(function(){
+            target.find('.animated').removeClass("animated");
+        },2000);
+        
+        return false;
+      }
+    }
+});
+</script>  
+
+    </body>
+</html>
+
+
+

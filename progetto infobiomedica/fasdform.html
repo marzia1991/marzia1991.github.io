@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+  <html lang="it">
+    <head>
+      <title>Fasd-Form</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/css/datepicker3.css" >
+      <!--My css-->
+      <link rel="stylesheet" href="css/styles.css" />
+
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/locales/bootstrap-datepicker.it.min.js"></script>
+      <!--My scripts-->
+      <script src="js/scripts.js"></script>
+    </head>
+
+    <body data-spy="scroll" data-target="#navbar-example">
+      <div class="col-md-2 sidebar" id="navbar-example">
+
+        <ul class="nav nav-pills nav-stacked">
+          <li role="presentation" class="active"><a href="#section1" ><strong>Informazioni base</strong></a></li>
+          <li role="presentation" class="active"><a href="#section2" ><strong>Accrescimento</strong></a></li>
+          <li role="presentation" class="active"><a href="#section3" ><strong>Report Analisi Fotografica Facciale e Definizione Grado Di Danno Al SNC</strong></a></li>
+          <li role="presentation" class="active"><a href="#section4" ><strong>Uso materno di alcol</strong></a></li>
+          <li role="presentation" class="active"><a href="#section5" ><strong>Altri eventi prenatali</strong></a></li>
+          <li role="presentation" class="active"><a href="#section6" ><strong>Altri eventi postnatali</strong></a></li>
+          <li role="presentation" class="active"><a href="#section7" ><strong>Diagnosi del paziente</strong></a></li>
+          <li role="presentation" class="active"><a href="Codici_correlazione.pdf" ><strong>Tabella codici correlazione</strong></a></li>
+          <li role="presentation" class="active"><a href="#section8" ><strong>Tabella ABC score con conversione</strong></a></li>
+          <li role="presentation" class="active"><a href="#section9" ><strong>Tabella SNC</strong></a></li>
+          <li role="presentation" class="active"><a href="#section10" ><strong>Tabella alcol</strong></a></li>
+          <li role="presentation" class="active"><a href="#section11" ><strong>Regole per derivare codici</strong></a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-10 col-md-offset-2">
+      <section class="container-fluid" id="section1">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h1 class="text-center"><strong>FASD Diagnostic Form</strong></h1>
+            <br>
+            <br>
+            <h3>Informazioni base</h3> 
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-7 col-md-offset-1">
+            <label for="nome_medico">Nome Medico</label>
+            <input type="text" class="form-control" id="nome_medico">
+          </div>
+          <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+              <label for="data_info_base">Data</label>
+              <div class="input-group date">
+                <input type="text" class="form-control" id="data_info_base">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          $('.input-group.date').datepicker({
+            format: "dd/mm/yyyy",
+            todayBtn: "linked",
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "top left",
+            language:'it'
+          });
+        </script>
+
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <label for="nome_clinica">Clinica</label>
+            <input type="text" class="form-control" id="nome_clinica">
+          </div>
+        </div>
+   
+        <div class="row">
+          <div class="col-md-7 col-md-offset-1">
+            <br>
+            <h3>Informazioni Paziente</h3> 
+            <br>
+            <label for="nome_paziente">Nome Paziente</label>
+            <input type="text" class="form-control" id="nome_paziente">
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <label>Età</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="età_paziente">
+              <div class="input-group-btn ">
+                <select class="btn btn-default" id="tipo_età_paziente">
+                  <option>anni</option>
+                  <option>mesi</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        
+            
+          <div class="col-md-2 col-md-offset-3" >
+            <div class="form-group">
+            <label for="data_nascita_paziente">Data di nascita</label>
+              <div class="input-group date">
+                <input type="text" class="form-control" id="data_nascita_paziente">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          $('.input-group.date').datepicker(
+          {
+            format: "dd/mm/yyyy",
+            todayBtn: "linked",
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "top left",
+            language:'it'
+            
+
+          });
+        </script>
+
+        <div class="row">
+          <div class="col-md-1 col-md-offset-1">
+            <label>Sesso</label>
+            <br>
+            <label class="radio-inline"><input type="radio" name="sesso" value="m">M</label>
+            <label class="radio-inline"><input type="radio" name="sesso" value="f">F</label>
+          </div>
+          <div class="col-md-5 col-md-offset-4">
+            <div class="form-group">
+              <label for="razza">Razza</label>
+              <input type="text" class="form-control" id="razza">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container-fluid" id="section2">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2><strong>1. Accrescimento</strong></h2>
+            <br>
+            <h3>Misure alla nascita</h3> 
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+              <label for="data_nascita">Data di nascita</label>
+              <div class="input-group date">
+                <input type="text" class="form-control" id="data_nascita">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <script>
+          $('.input-group.date').datepicker(
+          {
+            format: "dd/mm/yyyy",
+            todayBtn: "linked",
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "top left",
+            language:'it'
+            
+
+          });
+          </script>
+          <div class="col-md-2 " >
+            <div class="form-group">
+              <label for="età_gestazionale">Età gestazionale</label>
+              <div class="input-group" >
+                <input type="number" class="form-control"  aria-describedby="basic-addon2" id="età_gestazionale">
+                <span class="input-group-addon" id="basic-addon2" >settimane</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-1">
+            <div class="form-group">
+              <label for="lunghezza_cm">Lunghezza</label>
+              <div class="input-group" >
+                <input type="number" class="form-control"  aria-describedby="basic-addon2" id="lunghezza_cm">
+                <span class="input-group-addon" id="basic-addon2" >cm</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 " >
+            <label>&nbsp;</label>
+            <div class="input-group">
+              <input type="number" class="form-control"  aria-describedby="basic-addon2" id="lunghezza_percentili">
+              <span class="input-group-addon" id="basic-addon2">percentili</span>
+            </div>
+          </div>
+          <div class="col-md-1 ">
+            <div class="form-group" >
+              <label for="peso_g">Peso</label>
+              <div class="input-group" >
+                <input type="number" class="form-control"  aria-describedby="basic-addon2" id="peso_g">
+                <span class="input-group-addon" id="basic-addon2" >gr</span>
+              </div> 
+            </div>
+          </div>
+          <div class="col-md-2 ">
+            <label>&nbsp;</label>
+            <div class="input-group" >
+              <input type="number" class="form-control"  aria-describedby="basic-addon2" id="peso_percentili">
+              <span class="input-group-addon" id="basic-addon2">percentili</span>
+            </div>
+          </div>
+        </div>
+        
+        <br>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <h3>Crescita postnatale</h3> 
+            <br>
+          </div>
+        </div>
+
+        <!--prima riga della tabella crescita postnatale-->
+        <div id="riga_tab_postnatale0">
+          <div class="row" >
+            <div class="col-md-2 col-md-offset-1">
+              <div class="form-group">
+                <label for="data_0">Data </label>
+                <div class="input-group date">
+                  <input type="text" class="form-control" id="data_0">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <script>
+            $('.input-group.date').datepicker(
+            {
+              format: "dd/mm/yyyy",
+              todayBtn: "linked",
+              autoclose: true,
+              todayHighlight: true,
+              orientation: "top left",
+              language:'it'
+              
+
+            });
+            </script>
+
+            <div class="col-md-2 ">
+              <label>Età</label>
+              <div class="input-group">
+                <input type="number" class="form-control" id ="età_0">
+                <div class="input-group-btn ">
+                  <select class="btn btn-default" id="tipo_età_0">
+                    <option>anni</option>
+                    <option>mesi</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-1 " >
+              <div class="form-group">
+                <label for="altezza_cm_0">Altezza</label>
+                <div class="input-group" >
+                  <input type="number" class="form-control"  aria-describedby="basic-addon2" id="altezza_cm_0">
+                  <span class="input-group-addon" id="basic-addon2" >cm</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2 " >
+              <label>&nbsp;</label>
+              <div class="input-group">
+                <input type="number" class="form-control"  aria-describedby="basic-addon2" id="altezza_percentili_0">
+                <span class="input-group-addon" id="basic-addon2">percentili</span>
+              </div>
+            </div>
+            <div class="col-md-1 ">
+              <div class="form-group" >
+                <label for="peso_kg_0">Peso</label>
+                <div class="input-group" >
+                  <input type="number" class="form-control"  aria-describedby="basic-addon2" id="peso_kg_0">
+                  <span class="input-group-addon" id="basic-addon2" >kg</span>
+                </div> 
+              </div>
+            </div>
+            <div class="col-md-2 ">
+              <label>&nbsp;</label>
+              <div class="input-group" >
+                <input type="number" class="form-control"  aria-describedby="basic-addon2" id="peso_percentili_0">
+                <span class="input-group-addon" id="basic-addon2">percentili</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--riga fittizia che andrà aggiunta ogni volta -->
+        <div class="hide" >
+          <div id="riga_tab_postnatale">
+            <div class="row">
+              <div class="col-md-2 col-md-offset-1">
+                <div class="form-group">
+                  
+                  <div class="input-group date">
+                    <input type="text" class="form-control" id="data_1">
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar">
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <script>
+              $('.input-group.date').datepicker(
+              {
+                format: "dd/mm/yyyy",
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true,
+                orientation: "top left",
+                language:'it'
+                
+
+              });
+              </script>
+              <div class="col-md-2 ">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="età_1">
+                  <div class="input-group-btn ">
+                    <select class="btn btn-default" id="tipo_età_1">
+                      <option>anni</option>
+                      <option>mesi</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-1 " >
+                <div class="form-group">
+                  <div class="input-group" >
+                    <input type="number" class="form-control"  aria-describedby="basic-addon2"id="altezza_cm_1">
+                    <span class="input-group-addon" id="basic-addon2" >cm</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-2 " >
+                <div class="input-group">
+                  <input type="number" class="form-control"  aria-describedby="basic-addon2" id="altezza_percentili_1">
+                  <span class="input-group-addon" id="basic-addon2">percentili</span>
+                </div>
+              </div>
+              <div class="col-md-1 ">
+                <div class="form-group" >
+                  <div class="input-group" >
+                    <input type="number" class="form-control"  aria-describedby="basic-addon2" id="peso_kg_1">
+                    <span class="input-group-addon" id="basic-addon2" >kg</span>
+                  </div> 
+                </div>
+              </div>
+              <div class="col-md-2 ">
+                <div class="input-group" >
+                  <input type="number" class="form-control"  aria-describedby="basic-addon2" id="peso_percentili_1">
+                  <span class="input-group-addon" id="basic-addon2">percentili</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-1 col-md-offset-1">
+            <button id="button" onclick="addRow()">Aggiungi riga </button>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <h3>Altezza genitori</h3> 
+            <br>
+          </div>
+        </div>
+
+        <div class="row"  >
+          <div class="col-md-1 col-md-offset-1">
+            <label for="altezza_madre" id="aumenta">Altezza madre</label>
+            <div class="input-group" >
+              <input type="number" class="form-control"  aria-describedby="basic-addon2" id="altezza_madre">
+              <span class="input-group-addon" id="basic-addon2" >cm</span>
+            </div>
+          </div> 
+          <div class="col-md-1 ">
+            <label for="altezza_padre" id="aumenta">Altezza padre</label>
+            <div class="input-group">
+              <input type="number" class="form-control"  aria-describedby="basic-addon2" id="altezza_padre">
+              <span class="input-group-addon" id="basic-addon2" >cm</span>
+            </div>
+          </div>
+          <div class="col-md-2 " >
+            <label for="media_altezza" id="aumenta">Media altezza genitori</label>
+            <div class="input-group" >
+              <input type="number" class="form-control"  aria-describedby="basic-addon2" id="media_altezza">
+              <span class="input-group-addon" id="basic-addon2">cm</span>
+            </div>
+          </div>
+          <div class="col-md-2 " >
+            <label for="codice_correlazione" id="aumenta">Codice correlazione</label>
+            <div class="input-group" >
+              <input type="text" class="form-control"  aria-describedby="basic-addon2" id="codice_correlazione">
+              <span class="input-group-addon" id="basic-addon2" >cm</span>
+            </div>
+          </div>
+          <div class="col-md-2" >
+            <label for="altezza_correlata">Altezza correlata all'altezza genitori</label>
+            <input type="number" class="form-control" id="altezza_correlata">
+          </div>
+          <div class="col-md-2" >
+            <label for="percentili_correlati">Percentili correlati con altezza genitori</label>
+            <input type="number" class="form-control" id="percentili_correlati">
+          </div>
+        </div>
+      </section>
+
+      <section class="container-fluid" id="section3" >
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2><strong>2. Report Analisi Fotografica Facciale (Report Software)</strong></h2>
+            <br>
+            <form role="form">
+              <div class="form-group">
+                <label for="report_facciale">Altri reperti fisici/sindromi/condizioni mediche (es. orecchio a binario di treno solco palmare a bastone di hockey) </label>
+                <input type="text" class="form-control" id="report_facciale">
+              </div>
+            </form>
+            <br>
+            <h2><strong>3. Definizione Grado Di Danno Al SNC</strong></h2>
+            <br>
+            <h3>Anomalie strutturali</h3> 
+            <br>
+          </div>
+        </div>
+
+        <div id ="riga_tab_circonferenza0">
+          <div class="row">
+            <div class="col-md-2 col-md-offset-1 " >
+              <div class="form-group">
+                <label for="cm_0">Circonferenza cranica</label>
+                <div class="input-group" >
+                  <input type="number" class="form-control"  aria-describedby="basic-addon2" id="cm_0">
+                  <span class="input-group-addon" id="basic-addon2" >cm</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 " >
+              <label>&nbsp;</label>
+              <div class="input-group">
+                <input type="number" class="form-control"  aria-describedby="basic-addon2" id="percentili_0">
+                <span class="input-group-addon" id="basic-addon2" >percentili</span>
+              </div>
+            </div>
+            <div class="col-md-2 ">
+              <label>&nbsp;</label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="età_0">
+                <div class="input-group-btn ">
+                  <select class="btn btn-default" id="tipo_cranico_età_0">
+                    <option>anni</option>
+                    <option>mesi</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hide">
+          <div id="riga_tab_circonferenza">
+            <div class="row">
+              <div class="col-md-2 col-md-offset-1 " >
+                <div class="form-group">
+                  <div class="input-group" >
+                    <input type="number" class="form-control"  aria-describedby="basic-addon2" id="cm_1">
+                    <span class="input-group-addon" id="basic-addon2" >cm</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 " >
+                <div class="input-group">
+                  <input type="number" class="form-control"  aria-describedby="basic-addon2" id="percentili_1">
+                  <span class="input-group-addon" id="basic-addon2" >percentili</span>
+                </div>
+              </div>
+              <div class="col-md-2 ">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="età_1">
+                  <div class="input-group-btn ">
+                    <select class="btn btn-default" id="tipo_cranico_età_1">
+                      <option>anni</option>
+                      <option>mesi</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-1 col-md-offset-1">
+            <button id="button2" onclick="addRow2()">Aggiungi riga </button>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <label for="anomalie_strutturali">Anomalie strutturali viste con tecniche di imaging</label>
+            <input type="text" class="form-control" id="anomalie_strutturali">
+          </div>
+            
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <label for="altro_strutturali">Altro</label>
+            <input type="text" class="form-control" id="altro_strutturali">
+            <br>
+            <h3>Anomalie neurologiche</h3> 
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <label >Crisi epilettiche</label>
+            <br>
+            <label class="radio-inline" id="aumenta2"><input type="radio" name="crisi" id="radiono" onclick="nascondi()" value="0">No</label>
+            <label class="radio-inline" id="aumenta2"><input type="radio" name="crisi" id="radiosi" onclick="nascondi()" value="1">Si</label>
+          </div>
+
+          <div class="col-md-2 " >
+            <div class="hide" id="nascosto">
+              <label for="tipo_crisi">Tipo</label>
+              <input type="text" class="form-control" id="tipo_crisi" >
+          </div>
+          </div>
+
+          <div class="col-md-2 col-md-offset-1" >
+            <div class="hide" id="nascosto1">
+              <label>Età d'esordio</label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="età_esordio">
+                <div class="input-group-btn ">
+                  <select class="btn btn-default" id="tipo_età_esordio">
+                    <option>anni</option>
+                    <option>mesi</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <label for="altri_neurologici">Altri segni neurologici </label>
+            <input type="text" class="form-control" id="altri_neurologici">
+          </div>
+        </div>
+      </section>
+
+      <section class="container-fluid" id="section4" >
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2><strong>4. Uso materno di alcol</strong></h2>
+            <br>
+            <h3>Consumo di alcol della madre</h3> 
+            <br>
+            <h4>Prima della gravidanza</h4> 
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <label for="ua_occasione_prima">UA per occasione </label>
+            <input type="number" class="form-control" id="ua_occasione_prima">
+          </div>
+          <div class="col-md-2">
+            <label for="ua_max_prima">UA max introdotte </label>
+            <input type="number" class="form-control" id="ua_max_prima">
+          </div>
+          <div class="col-md-2">
+            <label for="ua_settimana_prima">UA/settimana </label>
+            <input type="number" class="form-control" id="ua_settimana_prima">
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="tipo_alcol_prima">Tipo di alcol</label>
+              <select class=" form-control" onchange="nascondiAltro('tipo_alcol_prima','nascondi_alcol_prima')" id="tipo_alcol_prima">
+                <option></option>
+                <option>vino</option>
+                <option>birra</option>
+                <option>SA</option>
+                <option value="altro">altro</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="hide"   id="nascondi_alcol_prima">               
+              <label>&nbsp;</label>
+              <input type="text" class="form-control" id= "altro_alcol_prima">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h4>Durante la gravidanza</h4> 
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <label for="ua_occasione_durante">UA per occasione </label>
+            <input type="number" class="form-control" id="ua_occasione_durante">
+          </div>
+          <div class="col-md-2">
+            <label for="ua_max_durante">UA max introdotte </label>
+            <input type="number" class="form-control" id="ua_max_durante">
+          </div>
+          <div class="col-md-2">
+            <label for="ua_settimana_durante">UA/settimana </label>
+            <input type="number" class="form-control" id="ua_settimana_durante">
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="tipo_alcol_durante">Tipo di alcol</label>
+              <br>
+              <select class="form-control" onchange="nascondiAltro('tipo_alcol_durante','nascondi_alcol_durante')" id="tipo_alcol_durante">
+                <option></option>
+                <option>vino</option>
+                <option>birra</option>
+                <option>SA</option>
+                <option value="altro">altro</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="hide"   id= "nascondi_alcol_durante" >
+              <label>&nbsp;</label>
+              <input type="text" class="form-control" id= "altro_alcol_durante">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+            <br>
+            <div class="col-md-5"><label >Trimestre durante il quale l'alcol è stato consumato</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q1" value="non_si_sa" onclick="nascondi_check_box()">Non si sa</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q1" value="nessuno" onclick="nascondi_check_box()">Nessuno</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="q1" value="almeno_uno" onclick="nascondi_check_box()">Almeno uno</label></div>
+            <div class="col-md-2" id="check_box_div">
+              <div class="hide" id="nascosto_check_box">
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox1" value="option1"> 1°
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2°
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3°
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+            <br>
+            <div class="col-md-5"><label>La madre riferisce di avere un problema con l'alcol?</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q2" value="non_si_sa">Non si sa</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q2" value="si">Si</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q2" value="no">No</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q2" value="sospetto">Sospetto</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+            <br>
+            <div class="col-md-5"><label>La madre ha una diagnosi di alcolismo?</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q3" value="non_si_sa">Non si sa</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q3" value="si">Si</label></div><div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q3" value="no">No</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q3" value="sospetto">Sospetto</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+            <br>
+            <div class="col-md-5"><label>La madre ha mai ricevuto trattamenti per la dipendenza da alcol?</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q4" value="non_si_sa">Non si sa</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q4" value="si">Si</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q4" value="no">No</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q4" value="sospetto">Sospetto</label></div>
+         </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1" >
+            <br> 
+            <div class="col-md-5"><label>L'uso di alcol in gravidanza è stato positivamente confermato?</label></div>
+            <div class="col-md-1 col-md-offset-1"><label class="radio-inline" ><input type="radio" name="q5" id="radiosi" onclick="nascondi2('nascosto3','q5')" value="1">Si</label></div>
+            <div class="col-md-1"><label class="radio-inline"><input type="radio" name="q5" id="radiono" onclick="nascondi2('nascosto3','q5')" value="0">No</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 ">
+            <div class="hide" id="nascosto3">
+              <br>
+              <div class="col-md-11">
+                <label for="conferma">Come è stato confermato</label>
+                <input type="text" class="form-control" id="conferma" >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+            <br>
+            <div class="col-md-5"><label>L'uso riportato di alcol in gravidanza è </label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="q6" value="affidabile">Affidabile</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="q6" value="parte_affidabile">In parte affidabile</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="q6" value="non_affidabile">Non affidabile</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+            <br>
+            <div class="col-md-11">
+              <label for="altre_info_gravidanza">Altre informazioni circa l'uso di alcol in gravidanza</label>
+              <input type="text" class="form-control" id="altre_info_gravidanza">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container-fluid" id="section5" >
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2><strong>5.  Altri eventi prenatali e postnatali</strong></h2>
+            <br>
+            <h3>Prenatali</h3> 
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-2 col-md-offset-2"><label class="radio-inline" ><input type="radio" name="prenatali" value="alto">Alto rischio</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="prenatali" value="moderato">Moderato rischio</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="prenatali" value="sconosciuto">Rischio sconosciuto</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="prenatali" value="no">No rischio</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 col-md-offset-1">
+            <br>
+            <br>
+            <div class="col-md-4"><label>1. Gravidanza multipla</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="gravidanza_multipla"  onclick="nascondi3()" value="1">Si</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="gravidanza_multipla"  onclick="nascondi3()" value="0">No</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="gravidanza_multipla"  onclick="nascondi3()" value="-1">Sconosciuto</label></div>
+          </div>
+
+          <div class="col-md-1">
+            <div class="hide" id="nascostograv1">
+              <label>&nbsp;</label>
+              <input type="number" class="form-control" id="da">
+            </div>
+          </div>
+
+          <div class="col-md-1" id="ridimensiona">
+            <div class="hide" id="nascostograv2">
+              <br>
+              <br>
+              <label >di</label>
+            </div>
+          </div>
+
+          <div class="col-md-1" >
+            <div class="hide" id="nascostograv3">
+              <label>&nbsp;</label>
+              <input type="number" class="form-control" id="a">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 col-md-offset-1">
+            <br>
+            <div class="col-md-4" ><label >2. Cure prenatali</label></div>
+            <div class="col-md-2" ><label class="radio-inline" ><input type="radio" name="cure_prenatali" value="si">Si</label></div>
+            <div class="col-md-2" ><label class="radio-inline" ><input type="radio" name="cure_prenatali" value="no">No</label></div>
+            <div class="col-md-2" ><label class="radio-inline" ><input type="radio" name="cure_prenatali" value="sconosciuto">Sconosciuto</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-11">
+              <label for="complicanze">3. Complicanze</label>
+              <input type="text" class="form-control" id="complicanze">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-11">
+            <label>4. Difficoltà di apprendimento nei genitori</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <br>
+            <div class="col-md-2 col-md-offset-1"><label>Madre</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="madre" id="radiosi" onclick="nascondi2('nascosto5','madre')" value="1">Si</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="madre" onclick="nascondi2('nascosto5','madre')" value="0">No</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="madre" onclick="nascondi2('nascosto5','madre')" value="-1">Sospettato</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="madre" onclick="nascondi2('nascosto5','madre')" value="-2">Sconosciuto</label></div>
+          </div>
+
+          <div class="col-md-3 " >
+            <div class="hide" id="nascosto5">
+              <input type="text" class="form-control" id="altre_info_madre">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <br>
+            <div class="col-md-2 col-md-offset-1"><label>Padre</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="padre" id="radiosi" onclick="nascondi2('nascosto4','padre')" value="1">Si</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="padre" onclick="nascondi2('nascosto4','padre')" value="0">No</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="padre" onclick="nascondi2('nascosto4','padre')" value="-1">Sospettato</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="padre" onclick="nascondi2('nascosto4','padre')" value="-2">Sconosciuto</label></div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="hide" id="nascosto4">
+              <input type="text" class="form-control" id="altre_info_padre">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <br>
+            <div class="col-md-12 col-md-offset-1">
+              <label for="altre_condizioni_ereditarie">Altre condizioni ereditarie che potrebbero essere rilevanti</label>
+              <input type="text" class="form-control" id="altre_condizioni_ereditarie">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-11">
+              <label for="esposizione_prenatale">5. Esposizione prenatale ad altre sostanze (farmaci, tabacco, droghe, altri teratogeni)</label>
+              <input type="text" class="form-control" id="esposizione_prenatale">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container-fluid" id="section6" >
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h3>Postnatali</h3> 
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-2 col-md-offset-2"><label class="radio-inline"><input type="radio" name="postnatali" value="alto">Alto rischio</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="postnatali" value="moderato">Moderato rischio</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="postnatali" value="sconosciuto">Rischio sconosciuto</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="postnatali" value="no">No rischio</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <br>
+            <div class="col-md-11">
+              <label for="apgar">1. Difficoltà perinatali: Indice di Apgar</label>
+              <input type="text" class="form-control" id="apgar">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-11">
+            <label >2. Problemi durante lo sviluppo</label></div>
+          </div>
+
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <br>
+            <div class="col-md-2 col-md-offset-1"><label>Abuso fisico</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="abuso_fisico" value="si">Si</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="abuso_fisico" value="no">No</label>
+            </div>
+            <div class="col-md-3 col-md-offset-2" ><label >Abuso sessuale</label></div>
+            <div class="col-md-1"><label class="radio-inline" ><input type="radio" name="abuso_sessuale" value="si">Si</label></div>
+            <div class="col-md-1"><label class="radio-inline"><input type="radio" name="abuso_sessuale" value="no">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <br>
+            <div class="col-md-12 col-md-offset-1">
+              <label for="adottato">Se adottato o vive nella famiglia d'origine </label>
+              <input type="text" class="form-control" id="adottato">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <br>
+            <div class="col-md-12 col-md-offset-1">
+              <label for="altro_traumi">Altro (traumi significativi, neglect, condizioni domestiche avverse)</label>
+              <input type="text" class="form-control" id="altro_traumi">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1" >
+            <br>
+            <div class="col-md-12 col-md-offset-1">
+              <label for="altri_problemi">Altri problemi che possono essere alla base di anormalità del SNC</label>
+              <input type="text" class="form-control" id="altri_problemi">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container-fluid" id="section7" >
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+             <h2><strong>Diagnosi del paziente</strong></h2>
+            <br>
+          </div>
+        </div> 
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <label for="diagnosi">Diagnosi</label>
+            <input type="text" class="form-control" id="diagnosi">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-2"><label>Crescita</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="crescita" value="assente">Assente</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="crescita" value="leggero">Leggero</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="crescita" value="moderato">Moderato</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="crescita" value="significativo">Significativo</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-2"><label>Viso</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="viso" value="assente">Assente</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="viso" value="leggero">Leggero</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="viso" value="moderato">Moderato</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="viso" value="significativo">Significativo</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-2"><label>SNC</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="snc" value="sconosciuto">Sconosciuto</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="snc" value="possibile">Possibile</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="snc" value="probabile">Probabile</label></div>
+            <div class="col-md-2 col-md-offset-2"><label class="radio-inline" ><input type="radio" name="snc_def" value="definito">Definito</label>
+            <label class="radio-inline" ><input type="radio" name="snc_def" value="non_definito">Non definito</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <br>
+            <div class="col-md-2"><label >Alcol</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="alcol" value="no">No rischio</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="alcol" value="sconosciuto">Sconosciuto</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="alcol" value="moderato">Moderato rischio</label></div>
+            <div class="col-md-2"><label class="radio-inline" ><input type="radio" name="alcol" value="alto">Alto rischio</label></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-1 col-md-offset-5" >
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-lg" id ="salva" onclick="salvataggio()">Salva</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="container-fluid" id="section8" >
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+             <h2><strong>Tabella ABC score con conversione</strong></h2>
+            <br>
+          </div>
+        </div> 
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h4>ABC score per deficit accrescimento</h4>
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 col-md-offset-1">
+            <table class="table" >
+              <thead>
+                <tr>
+                  <th id ="bordo">&nbsp;</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>&le; 3° percentile= <strong>C</strong></td>
+                </tr>
+
+                <tr>
+                  <td>&gt; 3° percentile e &le; 10° percentile= <strong>B</strong></td>
+                </tr>
+
+                <tr>
+                  <td>&gt; 10° percentile= <strong>A</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col-md-5">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ALTEZZA </th>
+                  <th>PESO</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><strong>C</strong></td>
+                  <td><strong>C</strong></td>
+                </tr>
+
+                <tr>
+                  <td><strong>B</strong></td>
+                  <td><strong>B</strong></td>
+                </tr>
+
+                <tr>
+                  <td><strong>A</strong></td>
+                  <td><strong>A</strong></td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-md-8 col-md-offset-3">
+            <div class="col-md-5 col-md-offset-1"><h5>Questo ABC score riflette l'accrescimento del paziente tra</h5></div>
+            <div class="col-md-1"><input type="number" class="form-control" id ="da_anni_abcscore"></div>
+            <div class="col-md-1"><h5> anni e </h5></div>
+            <div class="col-md-1"><input type="number" class="form-control" id ="a_anni_abcscore"></div>
+            <div class="col-md-1"><h5> anni</h5></div>
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h4>Convertire ABC score a codice diagnostico 4-Digit</h4>
+            <br>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>CODICE DIAGNOSTICO</th>
+                  <th>DEFICIT DI CRESCITA</th>
+                  <th>COMBINAZIONI ABC-SCORE ALTEZZA-PESO</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>4</td>
+                  <td>SEVERO</td>
+                  <td><strong>CC</strong></td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>MODERATO</td>
+                  <td><strong>CB, BC, CA, AC</strong></td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>LEGGERO</td>
+                  <td><strong>BA, BB, AB</strong></td>
+                </tr>
+
+                <tr>
+                  <td>1</td>
+                  <td>NO</td>
+                  <td><strong>AA</strong></td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="container-fluid" id="section9" >
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+             <h2><strong>Tabella SNC</strong></h2>
+            <br>
+          </div>
+        </div> 
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>CODICE DIAGNOSTICO</th>
+                  <th>PROBABILITA' DANNO AL SNC</th>
+                  <th>RISULTATI DI CONFERMA</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>4</td>
+                  <td><strong><u>Definita</u></strong><br>
+                      Anormalità strutturali e/o neurologiche<br><br>
+                      <i>Encefalopatia statica</i>
+                  </td>
+                  <td>Microcefalia  e/o Significative anormalità  nelle strutture cerebrali di presunta origine prenatale osservabili attraverso tecniche di imaging (es.idrocefalia, eterotopia corticale, cambiamenti di forma o dimensioni delle regioni cerebrali) e/o evidenza di forti problemi neurologici di origine prenatale (es. crisi epilettiche)</td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td><strong><u>Probabile</u></strong><br>
+                      Significativa disfunzione<br><br>
+                      <i>Encefalopatia statica</i>
+                  </td>
+                  <td>Significativa compromissione in 3 o più domini della funzione cerebrale (memoria, funzioni esecutive, attività cognitive,  motorie, linguaggio, attenzione), Ritardo mentale globale.</td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td><strong><u>Possibile</u></strong><br>
+                      Da leggero a moderato ritardo o disfunzione<br><br>
+                      <i>Disordine neurocomportamentale</i>
+                  </td>
+                  <td>Evidenza di ritardo o disfunzione che suggerisce la possibilità di danno al SNC, ma i dati non permettono classificazione Grado 3 (es. pazienti troppo piccoli per somministrare loro i test)</td>
+                </tr>
+
+                <tr>
+                  <td>1</td>
+                  <td><strong><u>Assente</u></strong></td>
+                  <td>Nessuna evidenza di ritardo o disfunzione /No+ danno SNC</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="container-fluid" id="section10" >
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+             <h2><strong>Tabella alcol</strong></h2>
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>4-DIGIT CODICE DIAGNOSTICO CATEGORIA</th>
+                  <th>ESPOSIZIONE PRENATALE ALL'ALCOL</th>
+                  <th>DESCRIZIONE</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>4</td>
+                  <td>ALTO RISCHIO</td>
+                  <td>Uso di alcol in gravidanza è confermato con  esposizione consistente (Consumo di alcol giornaliero)</td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>MODERATO</td>
+                  <td>Esposizione all'alcol confermata ma l'introito è minore del grado 4 o sconosciuto, sconosciuta è la frequenza dell'esposizione. Esposizione all'alcol fino alla scoperta della gravidanza</td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>RISCHIO SCONOSCIUTO</td>
+                  <td>Esposizione sconosciuta (non confermata ne' la presenza, ne' l'assenza es. se bambino adottato)</td>
+                </tr>
+
+                <tr>
+                  <td>1</td>
+                  <td>NO RISCHIO</td>
+                  <td>Confermata assenza di esposizione dal concepimento alla nascita</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="container-fluid" id="section11" >
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+             <h2><strong>Regole per derivare codici</strong></h2>
+            <br>
+          </div>
+        </div> 
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h4><strong>1. La raccolta dei dati riguardanti la crescita è separata in due parti:</strong></h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9 col-md-offset-2">
+            <h4>Crescita prenatale = misure alla nascita
+            <br><br>
+            Crescita postnatale = tutte le misure dopo la nascita
+            <br><br>
+            <div>- Per derivare il codice per la crescita, in presenza di più misure, selezionare il dato con il più grande deficit nel percentile dell'altezza.<br> Il percentile dell'altezza deve essere abbinato al percentile del peso alla stessa età
+            </div><br>
+            <div>- Per l'adattamento dell'altezza a quella dei genitori occorre calcolare l'altezza media dei genitori e in base ad essa e all'altezza del bambino, ricercare il codice di correlazione, nella tabella allegata, nella colonna corrispondente a questi valori e infine sottrarre il codice trovato all'altezza del bambino per ottenere l'altezza correlata a quella dei genitori</div></h4>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h4><strong>2. Le foto necessarie per l'analisi fotografica sono 3:</strong></h4>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-9 col-md-offset-2">  
+            <h4><div>- Foto frontale: espressione del viso rilassata, senza sorriso e labbra chiuse, occhi ben aperti e senza occhiali</div>
+            <br>
+            - Foto laterale
+            <br><br>
+            - Foto a 3/4: utile per individuare la forma del filtro </h4>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h4><strong>3. Il 4-Digit Diagnostic Code utilizza due termini al posto si FAE (Fetal Alcohol Defect) e ARND (Alcohol Related Neurodevelopmental Disorder):</strong></h4>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-9 col-md-offset-2">  
+            <h4><div>- Encefalopatia statica= significative anormalità strutturali, neurologiche e funzionali del SNC che non regrediscono nè progrediscono in prensenza di esposizione prenatale all'alcol</div><br>
+            <div>- Disordine dello sviluppo neurologico= compromissione funzionale moderata in presenza di esposizione prenatale all'alcol</div></h4>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    </body>
+  </html>

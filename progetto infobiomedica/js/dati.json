@@ -1,0 +1,180 @@
+{
+	"info_fasd":{
+		"medico":"001",
+		"clinica":"002",
+		"data_info_base": "05/11/2015",
+		"paziente":"003",
+	},
+
+	"medico":{
+		"id":"001",
+		"nome_medico": "Mario Rossi",
+	},
+
+	"clinica":{
+		"id":"002",
+		"nome_clinica": "Clinica FASD",
+	},
+	 
+	"paziente":{
+		"id":"003",
+		"nome_paziente": "Sara Mauri",
+		"età_paziente": "20", 
+		"tipo_età_paziente": "mesi",
+		"data_nascita_paziente":"12/03/2014",
+		"sesso":"f", 
+		"razza":"ispanica",
+		"diagnosi":"",
+		"griglia":[
+			{
+				"crescita":"leggero",
+				"viso":"moderato",
+				"snc":"probabile",
+				"snc_def":"definito",
+				"alcol":"moderato",
+			}
+		],
+		"report_misure":"004",
+		"test_madre":"005",
+		"altri_eventi_pre_e_postnatali":"006",
+		"da_anni_abcscore":"3",
+		"a_anni_abcscore":"5",
+
+	},
+	
+	"report_misure":{
+		"id":"004",
+		"misure_nascita":{
+			"data_nascita":"12/03/2014",
+			"età_gestazionale":"38",
+			"lunghezza_cm":"46",
+			"lunghezza_percentili":"7.5",
+			"peso_g":"2700",
+			"peso_percentili":"8.6",
+		},
+		"crescita_postnatale":[
+			{
+				"data_0":"14/10/2014",
+				"età_0":"7",
+				"tipo_età_0":"mesi",
+				"altezza_cm_0":"54",
+				"altezza_percentili_0":"6.4",
+				"peso_kg_0":"5.8",
+				"peso_percentili_0":"4.3",
+
+			},
+
+			{
+				"data_1":"14/10/2014",
+				"età_1":"7",
+				"tipo_età_1":"mesi",
+				"altezza_cm_1":"54",
+				"altezza_percentili_1":"6.4",
+				"peso_kg_1":"5.8",
+				"peso_percentili_1":"4.3",
+
+			},
+
+			{
+				"data_2":"23/01/2015",
+				"età_2":"10",
+				"tipo_età_2":"mesi",
+				"altezza_cm_2":"69",
+				"altezza_percentili_2":"5.2",
+				"peso_kg_2":"7.5",
+				"peso_percentili_2":"1.2",
+
+			},
+
+			{
+				"data_3":"05/11/2015",
+				"età_3":"20",
+				"tipo_età_3":"mesi",
+				"altezza_cm_3":"78",
+				"altezza_percentili_3":"8.7",
+				"peso_kg_3":"9.0",
+				"peso_percentili_3":"2.2",
+
+			},
+
+		],
+		"altezza_madre":"162",
+		"altezza_padre":"178",
+		"media_altezza":"170",
+		"codice_correlazione":"-1",
+		"altezza_correlata":"75",
+		"percentili_correlati":"1",
+		"report_facciale":"orecchio a binario di treno solco palmare a bastone di hockey",
+		"circonferenza_cranica":[
+			{
+				"cm_1":"20",
+				"percentili_1":"2.3",
+				"età_1":"7",
+				"tipo_cranico_età_1":"mesi",
+			},
+
+			{
+				"cm_2":"25",
+				"percentili_2":"1.8",
+				"età_2":"10",
+				"tipo_cranico_età_2":"mesi",
+			},
+		],
+		"anomalie_strutturali":"mai prese immagini",
+		"altro_strutturali":"niente",
+		"crisi":"1", 
+		"tipo_crisi":"crisi parziali",
+		"età_esordio":"8",
+		"tipo_età_esordio":"mesi",
+		"altri_neurologici":"nessuno",
+	},
+	
+	"test_madre":{
+		"id":"005",
+		"prima_gravidanza":{
+			"ua_occasione_prima":"sconosciuto",
+			"ua_max_prima":"sconosciuto",
+			"ua_settimana_prima":"sconosciuto",
+			"tipo_alcol_prima":"vino",
+		},
+		"durante_gravidanza":{
+			"ua_occasione_durante":"sconosciuto",
+			"ua_max_durante":"sconosciuto",
+			"ua_settimana_durante":"sconosciuto",
+			"tipo_alcol_durante":"altro",
+			"altro_alcol_durante":"vodka",
+		},
+		"domande":{
+			"q1":"primo",
+			"q2":"si",
+			"q3":"sospetto",
+			"q4":"no",
+			"q5":"si",
+			"conferma":"cartelle cliniche",
+			"q6":"affidabile",
+		},
+		"altre_info_gravidanza":"guidato sotto l'effetto di alcol nel primo trimestre",
+	},
+
+	"altri_eventi_pre_e_postnatali":{
+		"id":"006",
+		"prenatali":"moderato",
+		"gravidanza_multipla":"1",
+		"da":"1",
+		"a":"2",
+		"cure_prenatali":"no",
+		"complicanze":"nessuna",
+		"madre":"1",
+		"altre_info_madre":"non ha completato le scuole superiori",
+		"padre":"0",
+		"altre_condizioni_ereditarie":"non riportate",
+		"esposizione_prenatale":"sigarette e marijuana",
+		"postanatali":"sconosciuto",
+		"apgar":"lievemente depresso alla nascita, apgars 6 e 8",
+		"abuso_fisico":"no",
+		"abuso_sessuale":"no",
+		"adottato":"adottato alla nascita dalla corrente famiglia adottiva",
+		"altro_traumi":"non riportato",
+		"altri_problemi":"Possibile perdita precoce dell'udito e possibile asma in corso",
+	}
+}
