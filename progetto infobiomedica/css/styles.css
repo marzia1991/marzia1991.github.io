@@ -14,7 +14,7 @@ section {
   
 }
 
-@media (min-width: 1265px) and (min-height: 770px) {
+@media (min-width: 1265px) and (min-height: 830px) {
   .sidebar { 
     display: block;
     position: fixed; 
@@ -96,4 +96,10 @@ section {
 
 #check_box_div{
   padding-left: 40px;
+}
+
+#salva{
+  width: 100%;
+  background-color: #337ab7;
+  color: #fff;
 }

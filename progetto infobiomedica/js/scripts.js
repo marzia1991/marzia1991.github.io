@@ -85,9 +85,17 @@ var rows2 = 1;
 function addRow(){
   var div = document.getElementById("riga_tab_postnatale");
   var div2 = document.getElementById("riga_tab_postnatale0");
-  var clone = div.cloneNode(true); //non funziona più il calendario e non so perchè
+  var clone = div.cloneNode(true); 
   clone.id = div.id + rows;
   div2.appendChild(clone);
+  $('#'+ clone.id + ' .input-group.date').datepicker({
+    format: "dd/mm/yyyy",
+    todayBtn: "linked",
+    autoclose: true,
+    todayHighlight: true,
+    orientation: "top left",
+    language:'it'
+  });
   rows++;
 }
 
@@ -178,129 +186,136 @@ function salvataggio(){
   "peso_1_percentili":document.getElementById("peso_1_percentili").value.trim(),},
   //if press aggiungi riga than put other 
   ],*/
+
+  function toArray(list){
+    return Array.prototype.slice.call(list);
+  }
   
+  var crescita_postnatale = toArray(document.getElementById("riga_tab_postnatale0").children).map(function(item,i){
+    var data="data_"+i;
+    var età="età_"+i;
+    var tipo_età="tipo_età_"+i;
+    var altezza_cm="altezza_cm_"+i;
+    var altezza_percentili="altezza_percentili_"+i;
+    var peso_kg="peso_kg_"+i;
+    var peso_percentili="peso_percentili_"+i;
 
-
-  /*non va bene da rifare con map e vedere anche gli indici incrementali degli oggetti che hanno sempre lo stesso indice
-  var crescita_postnatale=new Array();
-  var numero_righe_tab_postnatale=document.getElementById("riga_tab_postnatale0").childElementCount;
-  var cont=1;
-  var a;
-  var app;
-  while(cont<=numero_righe_tab_postnatale){
-    app="data_"+cont;
-    app='"'+app+'"';
-    a={app:document.getElementById(app).value,
-      "età_"+cont:document.getElementById("età_"+cont).value.trim(),
-      "tipo_età_"+cont:document.getElementById("tipo_età_"+cont).value.trim(),
-      "altezza_"+cont+"_cm":document.getElementById("altezza_"+cont+"_cm").value.trim(),
-      "altezza_"+cont"_percentili":document.getElementById("altezza_"+cont"_percentili").value.trim(),
-      "peso_"+cont+"_kg":document.getElementById("peso_"+cont+"_kg").value.trim(),
-      "peso_"+cont+"_percentili":document.getElementById("peso_"+cont+"_percentili").value.trim(),};
-    crescita_postnatale.push(a);
-    cont++;
-  }*/
+    return {data:item.querySelector('.form-control.data').value,
+    età:item.querySelector('.form-control.età').value.trim(),
+    tipo_età:item.querySelector('.btn.btn-default.tipo_età').value.trim(),
+    altezza_cm:item.querySelector('.form-control.cm').value.trim(),
+    altezza_percentili:item.querySelector('.form-control.cmp').value.trim(),
+    peso_kg:item.querySelector('.form-control.kg').value.trim(),
+    peso_percentili:item.querySelector('.form-control.kgp').value.trim()};
   
-  document.getElementById("riga_tab_postnatale0").children.map(function(item){});
+  });
 
-  json=JSON.stringify({"info_fasd":{"medico":"001","clinica":"002","data_info_base":document.getElementById("data_info_base").value,"paziente":"003",},
-  "medico":{"id":"001","nome_medico":document.getElementById("nome_medico").value.trim(),},
+  var circonferenza_cranica = toArray(document.getElementById("riga_tab_circonferenza0").children).map(function(item,i){
+    var cm="cm_"+i;
+    var percentili="percentili_"+i;
+    var età="età_"+i;
+    var tipo_cranico_età_="tipo_cranico_età_"+i;
+
+    return {cm:item.querySelector('.form-control.cm').value.trim(),
+    percentili:item.querySelector('.form-control.cmp').value.trim(),
+    età:item.querySelector('.form-control.età').value.trim(),
+    tipo_cranico_età:item.querySelector('.btn.btn-default.tipo_età').value.trim()};
   
-  "clinica":{"id":"002","nome_clinica":document.getElementById("nome_clinica").value.trim(),}, 
+  });
+
+  json=JSON.stringify({info_fasd:{medico:"001",clinica:"002",data_info_base:document.getElementById("data_info_base").value,paziente:"003",},
+  medico:{id:"001",nome_medico:document.getElementById("nome_medico").value.trim(),},
   
-  "paziente":{"id":"003","nome_paziente":document.getElementById("nome_paziente").value.trim(),"età_paziente":document.getElementById("età_paziente").value.trim(),
-  "tipo_età_paziente":document.getElementById("tipo_età_paziente").value.trim(),
-  "data_nascita_paziente":document.getElementById("data_nascita_paziente").value, 
-  "sesso":sesso,
-  "razza":document.getElementById("razza").value.trim(),
-  "diagnosi":document.getElementById("diagnosi").value.trim(),
-  "griglia":[{"crescita":crescita,
-  "viso":viso,
-  "snc":snc,
-  "snc_def":snc_def,
-  "alcol":alcol,}],
-  "report_misure":"004",
-  "test_madre":"005",
-  "altri_eventi_pre_e_postnatali":"006",
-  "da_anni_abcscore":document.getElementById("da_anni_abcscore").value.trim(),
-  "a_anni_abcscore":document.getElementById("a_anni_abcscore").value.trim(),},
+  clinica:{id:"002",nome_clinica:document.getElementById("nome_clinica").value.trim(),}, 
+  
+  paziente:{id:"003",nome_paziente:document.getElementById("nome_paziente").value.trim(),età_paziente:document.getElementById("età_paziente").value.trim(),
+  tipo_età_paziente:document.getElementById("tipo_età_paziente").value.trim(),
+  data_nascita_paziente:document.getElementById("data_nascita_paziente").value, 
+  sesso:sesso,
+  razza:document.getElementById("razza").value.trim(),
+  diagnosi:document.getElementById("diagnosi").value.trim(),
+  griglia:[{crescita:crescita,
+  viso:viso,
+  snc:snc,
+  snc_def:snc_def,
+  alcol:alcol,}],
+  report_misure:"004",
+  test_madre:"005",
+  altri_eventi_pre_e_postnatali:"006",
+  da_anni_abcscore:document.getElementById("da_anni_abcscore").value.trim(),
+  a_anni_abcscore:document.getElementById("a_anni_abcscore").value.trim(),},
 
-  "report_misure":{"id":"004","misure_nascita":{"data_nascita":document.getElementById("data_nascita").value,
-  "età_gestazionale":document.getElementById("età_gestazionale").value.trim(),
-  "lunghezza_cm":document.getElementById("lunghezza_cm").value.trim(),
-  "lunghezza_percentili":document.getElementById("lunghezza_percentili").value.trim(),
-  "peso_g":document.getElementById("peso_g").value.trim(),
-  "peso_percentili":document.getElementById("peso_percentili").value.trim(),},
-  "crescita_postnatale":[crescita_postnatale],
-  "altezza_madre":document.getElementById("altezza_madre").value.trim(),
-  "altezza_padre":document.getElementById("altezza_padre").value.trim(),
-  "media_altezza":document.getElementById("media_altezza").value.trim(),
-  "codice_correlazione":document.getElementById("codice_correlazione").value.trim(),
-  "altezza_correlata":document.getElementById("altezza_correlata").value.trim(),
-  "percentili_correlati":document.getElementById("percentili_correlati").value.trim(),
-  "report_facciale":document.getElementById("report_facciale").value.trim(),
-  "circonferenza_cranica":[{"cm_1":document.getElementById("cm_1").value.trim(),
-  "percentili_1":document.getElementById("percentili_1").value.trim(),
-  "età_1":document.getElementById("età_1").value.trim(),
-  "tipo_cranico_età_1":document.getElementById("tipo_cranico_età_1").value.trim(),},
-  //if press aggiungi riga than put other 
-  ],
-  "anomalie_strutturali":document.getElementById("anomalie_strutturali").value.trim(),
-  "altro_strutturali":document.getElementById("altro_strutturali").value.trim(),
-  "crisi": crisi,
-  "tipo_crisi":document.getElementById("tipo_crisi").value.trim(),
-  "età_esordio":document.getElementById("età_esordio").value.trim(),
-  "tipo_età_esordio":document.getElementById("tipo_età_esordio").value.trim(),
-  "altri_neurologici":document.getElementById("altri_neurologici").value.trim(),
+  report_misure:{id:"004",misure_nascita:{data_nascita:document.getElementById("data_nascita").value,
+  età_gestazionale:document.getElementById("età_gestazionale").value.trim(),
+  lunghezza_cm:document.getElementById("lunghezza_cm").value.trim(),
+  lunghezza_percentili:document.getElementById("lunghezza_percentili").value.trim(),
+  peso_g:document.getElementById("peso_g").value.trim(),
+  peso_percentili:document.getElementById("peso_percentili").value.trim(),},
+  crescita_postnatale:crescita_postnatale,
+  altezza_madre:document.getElementById("altezza_madre").value.trim(),
+  altezza_padre:document.getElementById("altezza_padre").value.trim(),
+  media_altezza:document.getElementById("media_altezza").value.trim(),
+  codice_correlazione:document.getElementById("codice_correlazione").value.trim(),
+  altezza_correlata:document.getElementById("altezza_correlata").value.trim(),
+  percentili_correlati:document.getElementById("percentili_correlati").value.trim(),
+  report_facciale:document.getElementById("report_facciale").value.trim(),
+  circonferenza_cranica: circonferenza_cranica,
+  anomalie_strutturali:document.getElementById("anomalie_strutturali").value.trim(),
+  altro_strutturali:document.getElementById("altro_strutturali").value.trim(),
+  crisi: crisi,
+  tipo_crisi:document.getElementById("tipo_crisi").value.trim(),
+  età_esordio:document.getElementById("età_esordio").value.trim(),
+  tipo_età_esordio:document.getElementById("tipo_età_esordio").value.trim(),
+  altri_neurologici:document.getElementById("altri_neurologici").value.trim(),
   },
 
-  "test_madre":{"id":"005",
-  "prima_gravidanza":{
-    "ua_occasione_prima":document.getElementById("ua_occasione_prima").value.trim(),
-    "ua_max_prima":document.getElementById("ua_max_prima").value.trim(),
-    "ua_settimana_prima":document.getElementById("ua_settimana_prima").value.trim(),
-    "tipo_alcol_prima":document.getElementById("tipo_alcol_prima").value.trim(),
-    "altro_alcol_prima":document.getElementById("altro_alcol_prima").value.trim(),
+  test_madre:{id:"005",
+  prima_gravidanza:{
+    ua_occasione_prima:document.getElementById("ua_occasione_prima").value.trim(),
+    ua_max_prima:document.getElementById("ua_max_prima").value.trim(),
+    ua_settimana_prima:document.getElementById("ua_settimana_prima").value.trim(),
+    tipo_alcol_prima:document.getElementById("tipo_alcol_prima").value.trim(),
+    altro_alcol_prima:document.getElementById("altro_alcol_prima").value.trim(),
   },
-  "durante_gravidanza":{
-    "ua_occasione_durante":document.getElementById("ua_occasione_durante").value.trim(),
-    "ua_max_durante":document.getElementById("ua_max_durante").value.trim(),
-    "ua_settimana_durante":document.getElementById("ua_settimana_durante").value.trim(),
-    "tipo_alcol_durante":document.getElementById("tipo_alcol_durante").value.trim(),
-    "altro_alcol_durante":document.getElementById("altro_alcol_durante").value.trim(),
+  durante_gravidanza:{
+    ua_occasione_durante:document.getElementById("ua_occasione_durante").value.trim(),
+    ua_max_durante:document.getElementById("ua_max_durante").value.trim(),
+    ua_settimana_durante:document.getElementById("ua_settimana_durante").value.trim(),
+    tipo_alcol_durante:document.getElementById("tipo_alcol_durante").value.trim(),
+    altro_alcol_durante:document.getElementById("altro_alcol_durante").value.trim(),
   },
-  "domande":{
-    "q1":q1,
-    "q2":q2,
-    "q3":q3,
-    "q4":q4,
-    "q5":q5,
-    "conferma":document.getElementById("conferma").value.trim(),
-    "q6":q6,
+  domande:{
+    q1:q1,
+    q2:q2,
+    q3:q3,
+    q4:q4,
+    q5:q5,
+    conferma:document.getElementById("conferma").value.trim(),
+    q6:q6,
   },
-  "altre_info_gravidanza":document.getElementById("altre_info_gravidanza").value.trim(),
+  altre_info_gravidanza:document.getElementById("altre_info_gravidanza").value.trim(),
   },
 
-  "altri_eventi_pre_e_postnatali":{"id":"006",
-    "prenatali":prenatali,
-    "gravidanza_multipla":gravidanza_multipla,
-    "da":document.getElementById("da").value.trim(),
-    "a":document.getElementById("a").value.trim(),
-    "cure_prenatali":cure_prenatali,
-    "complicanze":document.getElementById("complicanze").value.trim(),
-    "madre":madre,
-    "altre_info_madre":document.getElementById("altre_info_madre").value.trim(),
-    "padre":padre,
-    "altre_info_madre":document.getElementById("altre_info_madre").value.trim(),
-    "altre_condizioni_ereditarie":document.getElementById("altre_condizioni_ereditarie").value.trim(),
-    "esposizione_prenatale":document.getElementById("esposizione_prenatale").value.trim(),
-    "postanatali":postanatali,
-    "apgar":document.getElementById("apgar").value.trim(),
-    "abuso_fisico":abuso_fisico,
-    "abuso_sessuale":abuso_sessuale,
-    "adottato":document.getElementById("adottato").value.trim(),
-    "altro_traumi":document.getElementById("altro_traumi").value.trim(),
-    "altri_problemi":document.getElementById("altri_problemi").value.trim(),
+  altri_eventi_pre_e_postnatali:{id:"006",
+    prenatali:prenatali,
+    gravidanza_multipla:gravidanza_multipla,
+    da:document.getElementById("da").value.trim(),
+    a:document.getElementById("a").value.trim(),
+    cure_prenatali:cure_prenatali,
+    complicanze:document.getElementById("complicanze").value.trim(),
+    madre:madre,
+    altre_info_madre:document.getElementById("altre_info_madre").value.trim(),
+    padre:padre,
+    altre_info_madre:document.getElementById("altre_info_madre").value.trim(),
+    altre_condizioni_ereditarie:document.getElementById("altre_condizioni_ereditarie").value.trim(),
+    esposizione_prenatale:document.getElementById("esposizione_prenatale").value.trim(),
+    postanatali:postanatali,
+    apgar:document.getElementById("apgar").value.trim(),
+    abuso_fisico:abuso_fisico,
+    abuso_sessuale:abuso_sessuale,
+    adottato:document.getElementById("adottato").value.trim(),
+    altro_traumi:document.getElementById("altro_traumi").value.trim(),
+    altri_problemi:document.getElementById("altri_problemi").value.trim(),
   }
 
   }, null, '\t');
@@ -308,3 +323,19 @@ function salvataggio(){
   console.log(json);
 }
 
+
+
+function init () {
+   $('.input-group.date').datepicker({
+    format: "dd/mm/yyyy",
+    todayBtn: "linked",
+    autoclose: true,
+    todayHighlight: true,
+    orientation: "top left",
+    language:'it'
+  });
+}
+
+$(function () {
+  init();
+});
