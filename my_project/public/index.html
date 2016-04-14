@@ -15,24 +15,8 @@
       <script src="js/scripts.js"></script>
     </head>
 
+    <!-- Remember: open this page on the browser using github and not local host; use http://marzia1991.github.io/my_project/public/index.html-->
     <body>
-      <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '1063745690363638',
-            xfbml      : true,
-            version    : 'v2.6'
-          });
-        };
-
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "//connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-      </script>
       <div class="panel panel-primary" id ="panel_form">
         <div class="panel-heading text-center" >Login with Facebook </div>
         <div class="panel-body text-center">
