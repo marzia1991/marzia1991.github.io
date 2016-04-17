@@ -3,16 +3,3 @@
 	margin-left: 40%;
 	margin-right: 40%;
 }
-
-#span_glyphicon_user{
-	position: static;
-}
-
-#span_glyphicon_password{
-	position: static;
-}
-
-#submit_login{
-	text-align: center;
-	width: 50%;
-}
