@@ -92,6 +92,7 @@
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+        console.log(response.status);
       if (response.status === 'connected') {
     var accessToken = response.authResponse.accessToken;
     console.log(accessToken);
