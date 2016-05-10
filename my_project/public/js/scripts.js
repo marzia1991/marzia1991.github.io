@@ -95,3 +95,10 @@
     });
   }
 
+var accessToken;
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    accessToken = response.authResponse.accessToken;
+    console.log(accessToken);
+  } 
+} );
