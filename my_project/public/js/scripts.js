@@ -1,5 +1,5 @@
 //script for facebook connection and initialized the JavaScript SDK
-window.fbAsyncInit = function() {
+/*window.fbAsyncInit = function() {
   FB.init({
     appId      : '1063745690363638',
     xfbml      : true,
@@ -13,7 +13,7 @@ window.fbAsyncInit = function() {
    js = d.createElement(s); js.id = id;
    js.src = "//connect.facebook.net/en_US/sdk.js";
    fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
+ }(document, 'script', 'facebook-jssdk'));*/
 
 //script for login with facebook
   // This is called with the results from from FB.getLoginStatus().
@@ -92,6 +92,10 @@ window.fbAsyncInit = function() {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+      if (response.status === 'connected') {
+    var accessToken = response.authResponse.accessToken;
+    console.log(accessToken);
+  } 
     });
   }
 
