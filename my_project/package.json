@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongojs": "^2.1.0"
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongojs": "^2.1.0",
+    "morgan": "^1.6.1"
   }
 }

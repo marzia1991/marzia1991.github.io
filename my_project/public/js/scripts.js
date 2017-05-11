@@ -1,3 +1,4 @@
+
 //script for facebook connection and initialized the JavaScript SDK
 /*window.fbAsyncInit = function() {
   FB.init({
@@ -70,7 +71,24 @@
   // These three cases are handled in the callback function.
 
   FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
+    if (response.status === 'connected') {
+      var token=response.authResponse.accessToken;
+      console.log(token);
+      $.ajax({
+        type : "POST",
+        url : "/api/schedules",
+        data : token,
+        
+      });
+      
+  /*fetch('/api/schedules', {  
+    method: 'post',  
+    headers: {  
+      "Content-type": "application/token; charset=UTF-8"  
+    },  
+    body: token 
+  }) */
+    }
   });
 
   };
@@ -92,18 +110,6 @@
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-        console.log(response.status);
-      if (response.status === 'connected') {
-    var accessToken = response.authResponse.accessToken;
-    console.log(accessToken);
-  } 
     });
   }
 
-var accessToken;
-FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    accessToken = response.authResponse.accessToken;
-    console.log(accessToken);
-  } 
-} );
